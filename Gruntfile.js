@@ -22,28 +22,16 @@ module.exports = function(grunt) {
                 }
             }
         },
-        jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js'],
-            options: {
-                // options here to override JSHint defaults
-                trailing: true,
-                globals: {
-                    browser: true,
-                    console: true
-                }
-            }
-        },
         watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'concat']
+            files: ['Gruntfile.js', 'src/**/*.js'],
+            tasks: ['concat']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', ['concat', 'uglify']);
 
 };
